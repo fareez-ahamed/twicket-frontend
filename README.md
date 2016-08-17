@@ -1,6 +1,5 @@
 # twicket-frontend
-
-> Frontend for Twicket
+> Frontend for Twicket. Made with Vue.js
 
 ## Build Setup
 
