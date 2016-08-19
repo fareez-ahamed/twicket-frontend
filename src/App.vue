@@ -1,7 +1,5 @@
 <template>
-  <div id="app">
-    <button type="button" name="button" class="btn btn-primary">Bismillah</button>
-  </div>
+  <router-view></router-view>
 </template>
 
 <script>
