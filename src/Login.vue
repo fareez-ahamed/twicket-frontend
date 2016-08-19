@@ -33,5 +33,9 @@ export default {
 
 }
 </script>
+
 <style>
+.login-box {
+  margin-top: 200px;
+}
 </style>
