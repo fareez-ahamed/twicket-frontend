@@ -1,5 +1,4 @@
 import Vue from 'vue'
-import Vuex from 'vuex'
 import VueRouter from 'vue-router'
 import App from './App'
 import Login from './Login'
@@ -7,7 +6,6 @@ import NavbarView from './components/NavbarView'
 import Dashboard from './components/Dashboard'
 import 'bootstrap-sass/assets/stylesheets/_bootstrap.scss'
 
-Vue.use(Vuex)
 Vue.use(VueRouter)
 
 let router = new VueRouter()
@@ -26,6 +24,16 @@ router.map({
   }
 })
 
-router.start(App, 'body')
+router.beforeEach(transition => {
+  if (!transition.to.router.app.userHasLoggedIn &&
+      transition.to.path !== '/login') {
+    console.log('Hi')
+    transition.redirect({
+      path: '/login'
+    })
+  } else {
+    transition.next()
+  }
+})
 
-console.log(router)
+router.start(App, 'body')

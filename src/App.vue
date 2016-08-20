@@ -6,7 +6,17 @@
 import store from './vuex/store'
 
 export default {
-  store
+  replace: false,
+
+  store,
+
+  vuex: {
+    getters: {
+      userHasLoggedIn: (state) => {
+        return state.user !== null
+      }
+    }
+  }
 }
 </script>
 
