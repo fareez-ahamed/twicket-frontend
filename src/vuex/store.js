@@ -5,12 +5,17 @@ Vue.use(Vuex)
 
 const state = {
   count: 0,
-  user: null
+  user: null,
+  token: null
 }
 
 const mutations = {
   INCREMENT (state) {
     state.count++
+  },
+
+  LOGIN (state, token) {
+    state.token = token
   }
 }
 

@@ -3,7 +3,7 @@
     <div class="row login-box">
       <div class="col-sm-4 col-sm-offset-4">
         <div class="well well-lg">
-          <form action="/auth/login" method="POST" class="form-horizontal" role="form">
+          <form class="form-horizontal" role="form">
             <div class="form-group">
               <div class="col-sm-12">
                 <input type="email" name="email" id="inputEmail" class="form-control" value="" required="required" title="">
@@ -18,7 +18,7 @@
 
             <div class="form-group">
               <div class="col-sm-12">
-                <button type="submit" class="btn btn-block btn-primary">Login</button>
+                <button type="button" @click.prevent="login" class="btn btn-block btn-primary">Login</button>
               </div>
             </div>
           </form>
@@ -29,8 +29,14 @@
 </template>
 
 <script>
-export default {
+import { login } from './vuex/actions'
 
+export default {
+  vuex: {
+    actions: {
+      login
+    }
+  }
 }
 </script>
 

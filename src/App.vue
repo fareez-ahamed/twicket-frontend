@@ -4,8 +4,10 @@
 
 <script>
 import store from './vuex/store'
+import { login } from './vuex/actions'
 
 export default {
+
   replace: false,
 
   store,
@@ -13,8 +15,11 @@ export default {
   vuex: {
     getters: {
       userHasLoggedIn: (state) => {
-        return state.user !== null
+        return state.token !== null
       }
+    },
+    actions: {
+      login: login
     }
   }
 }
