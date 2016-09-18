@@ -6,19 +6,19 @@
           <form class="form-horizontal" role="form">
             <div class="form-group">
               <div class="col-sm-12">
-                <input type="email" name="email" id="inputEmail" class="form-control" value="" required="required" title="">
+                <input v-model="email" type="email" name="email" id="inputEmail" class="form-control" value="" required="required" title="">
               </div>
             </div>
 
             <div class="form-group">
               <div class="col-sm-12">
-                <input type="password" name="password" id="inputPassword" class="form-control" value="" required="required" title="">
+                <input v-model="password" type="password" name="password" id="inputPassword" class="form-control" value="" required="required" title="">
               </div>
             </div>
 
             <div class="form-group">
               <div class="col-sm-12">
-                <button type="button" @click.prevent="login" class="btn btn-block btn-primary">Login</button>
+                <button type="button" @click.prevent="login(email, password)" class="btn btn-block btn-primary">Login</button>
               </div>
             </div>
           </form>
@@ -32,6 +32,12 @@
 import { login } from './vuex/actions'
 
 export default {
+  data () {
+    return {
+      email: '',
+      password: ''
+    }
+  },
   vuex: {
     actions: {
       login
