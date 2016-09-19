@@ -4,7 +4,7 @@
       <div class="col-sm-4 col-sm-offset-4">
         <div class="well well-lg">
           <div v-if="loginMessage" class="alert alert-{{loginMessage.type}}" role="alert">{{ loginMessage.message }}</div>
-          <form class="form-horizontal" role="form">
+          <form class="form-horizontal" @submit.prevent="login(email, password)" role="form">
             <div class="form-group">
               <div class="col-sm-12">
                 <input v-model="email" type="email" name="email" id="inputEmail" class="form-control" value="" required="required" title="">
@@ -19,7 +19,7 @@
 
             <div class="form-group">
               <div class="col-sm-12">
-                <button type="button" @click.prevent="login(email, password)" class="btn btn-block btn-primary">Login</button>
+                <button type="submit" class="btn btn-block btn-primary">Login</button>
               </div>
             </div>
           </form>
