@@ -3,6 +3,7 @@
     <div class="row login-box">
       <div class="col-sm-4 col-sm-offset-4">
         <div class="well well-lg">
+          <div v-if="loginMessage" class="alert alert-{{loginMessage.type}}" role="alert">{{ loginMessage.message }}</div>
           <form class="form-horizontal" role="form">
             <div class="form-group">
               <div class="col-sm-12">
@@ -39,6 +40,11 @@ export default {
     }
   },
   vuex: {
+    getters: {
+      loginMessage: (store) => {
+        return store.loginMessage
+      }
+    },
     actions: {
       login
     }

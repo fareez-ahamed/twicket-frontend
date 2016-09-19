@@ -11,6 +11,11 @@ export function login (store, email, password) {
     username: email,
     password: password,
     scope: ''
-  }).then(response => console.log(response))
-    .error(error => console.log(error))
+  }).then(response => {
+    console.log(response)
+    store.dispatch('CLEAR_LOGIN_MSG')
+  }).catch(error => {
+    console.log(error)
+    store.dispatch('SET_LOGIN_MSG', 'danger', 'Invalid Credentials')
+  })
 }
