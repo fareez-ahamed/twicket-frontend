@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import VueResource from 'vue-resource'
+import router from '../router.js'
 
 Vue.use(VueResource)
 
@@ -13,7 +14,10 @@ export function login (store, email, password) {
     scope: ''
   }).then(response => {
     console.log(response)
+    store.dispatch('LOGIN', response.data)
     store.dispatch('CLEAR_LOGIN_MSG')
+    router.go('/')
+    // Vue.http.get('/api/user').then(response => console.log(response))
   }).catch(error => {
     console.log(error)
     store.dispatch('SET_LOGIN_MSG', 'danger', 'Invalid Credentials')
